@@ -1,0 +1,67 @@
+Display Current Date
+To display the current date, import the java.time.LocalDate class, and use its now() method:
+
+Example
+import java.time.LocalDate; // import the LocalDate class
+
+public class Main {
+  public static void main(String[] args) {
+    LocalDate myObj = LocalDate.now(); // Create a date object
+    System.out.println(myObj); // Display the current date
+  }
+  output:
+   2021-10-10
+   
+   
+   Display Current Time
+To display the current time (hour, minute, second, and nanoseconds), import the java.time.LocalTime class, and use its now() method:
+
+Example
+import java.time.LocalTime; // import the LocalTime class
+
+public class Main {
+  public static void main(String[] args) {
+    LocalTime myObj = LocalTime.now();
+    System.out.println(myObj);
+  }
+}
+The output will be:
+  19:24:55.515521
+  
+  Display Current Date and Time
+To display the current date and time, import the java.time.LocalDateTime class, and use its now() method:
+
+Example
+import java.time.LocalDateTime; // import the LocalDateTime class
+
+public class Main {
+  public static void main(String[] args) {
+    LocalDateTime myObj = LocalDateTime.now();
+    System.out.println(myObj);
+  }
+}
+The output will be:
+
+2021-10-10T19:24:55.515131
+
+Formatting Date and Time
+The "T" in the example above is used to separate the date from the time. You can use the DateTimeFormatter class with the ofPattern() method in the same package to format or parse date-time objects. The following example will remove both the "T" and nanoseconds from the date-time:
+
+Example
+import java.time.LocalDateTime; // Import the LocalDateTime class
+import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
+
+public class Main {
+  public static void main(String[] args){
+  LocalDateTime myDateObj = LocalDateTime.now();
+    System.out.println("Before formatting: " + myDateObj);
+    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+    String formattedDate = myDateObj.format(myFormatObj);
+    System.out.println("After formatting: " + formattedDate);
+  }
+}
+The output will be:
+
+Before Formatting: 2021-10-10T19:24:55.516078
+After Formatting: 10-10-2021 19:24:55
